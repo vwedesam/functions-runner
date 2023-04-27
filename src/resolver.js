@@ -10,8 +10,6 @@ const { supportedServerlessProvider } = require("./constanst");
  */
 module.exports = function(argv, rootFunction){
 
-    console.group(argv, "argv ...")
-
     let PORT = 8080;
     let functionList = null;
     let importedFunctionList  = Object.keys(rootFunction);
@@ -35,9 +33,7 @@ module.exports = function(argv, rootFunction){
     
     if(argv.targets){
         functionList = argv.targets.split(",");
-    }  
-
-    console.log(functionList, importedFunctionList)
+    }
 
     if(!importedFunctionList.find(_function=> functionList.includes(_function))){
         throw new Error(`Targeted function not found.`);
