@@ -1,0 +1,10 @@
+node_modules
+jspm_packages
+
+.idea/*
+.env
+.DS_Store
+.build
+*.zip
+
+package-lock.json

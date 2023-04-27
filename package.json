@@ -1,0 +1,36 @@
+{
+  "name": "functions-runner",
+  "version": "1.0.0",
+  "description": "A CLI Tool (based on [Express](https://expressjs.com/)) for running and testing portable Node.js functions locally",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "yargs": "^17.7.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vwedesam/functions-runner.git"
+  },
+  "bin": "./index.js",
+  "keywords": [
+    "cli",
+    "npmtool",
+    "functions-runner",
+    "runner-locally",
+    "functions-locally",
+    "cloud-functions-locally"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vwedesam/functions-runner/issues"
+  },
+  "homepage": "https://github.com/vwedesam/functions-runner#readme"
+}
