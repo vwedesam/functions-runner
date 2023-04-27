@@ -54,7 +54,7 @@ command-line arguments:
 1. Use `npm run start:dev` to start the built-in local development server:
 
     ```sh
-    npm start
+    npm run start:dev
     ...
     Serving function...
     Function: helloWorld
