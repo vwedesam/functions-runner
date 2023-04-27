@@ -2,7 +2,7 @@
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
 const app = require("./src/server");
-const rootFunction  = require('..');
+const rootFunction = require('../../.');
 const resolver = require('./src/resolver');
 
 const argv = yargs(hideBin(process.argv)).argv;
