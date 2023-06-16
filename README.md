@@ -84,14 +84,14 @@ ignored.
 
 
 
-## TypeScript usage
+
+## TypeScript
 
 Add this `scripts` to  `package.json`
 ```json
     "build": "tsc",
 
-    "dev": "npm run build && npx functions-runner --target=helloWorld
- --src=dist/index.js",
+    "dev": "npm run build && npx functions-runner --target=helloWorld --src=dist/index.js",
 
     "start": "npm run build && node dist/index.js"
 ```
