@@ -80,6 +80,8 @@ ignored.
 | `--target`         | required         | The name of the exported function to be invoked in response to requests. e.g `--target=helloWorld`                                                                 
 | `--targets`         | optional         | The name of the exported functions to be invoked in response to requests e.g `--targets=helloWorld,function,greeting`
 | `--src`         |  dir defined by `main` in `package.json`        | The path to `index.js` where the function(s) are exported from. e.g `--src=dist/index.js`
+| `--provider`         | GCP        | Supported Serverless provider `GCP, AWS`. e.g `--provider=aws`
+
 
 
 ## TypeScript usage

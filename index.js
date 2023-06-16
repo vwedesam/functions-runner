@@ -14,11 +14,11 @@ if(argv.src){
     rootFunction = require('./../../.');
 }
 
-const { functionList, PORT } = resolver(argv, rootFunction);
+const { functionList, PORT, functionsCallback } = resolver(argv, rootFunction);
 
 functionList.forEach(name => {
 
-    app.all(`/${name}`, rootFunction[`${name}`]);
+    app.all(`/${name}`, functionsCallback(rootFunction[`${name}`]));
 
 });
 

@@ -12,6 +12,7 @@ module.exports = function(argv, rootFunction){
 
     let PORT = 8080;
     let functionList = null;
+    let functionsCallback = null;
     let importedFunctionList  = Object.keys(rootFunction);
     let serverlessProvider = supportedServerlessProvider.GCP;
 
@@ -44,11 +45,31 @@ module.exports = function(argv, rootFunction){
         if(!Object.keys(supportedServerlessProvider).find(provider=> provider.toLowerCase() == serverlessProvider.toLowerCase())){
             throw new Error(`provider ${serverlessProvider} is not yet supported.`);
         }
+
+        if(serverlessProvider?.toUpperCase() == supportedServerlessProvider.GCP){
+            functionsCallback = function(callback){
+                return callback
+            }
+        }else if(serverlessProvider?.toUpperCase() == supportedServerlessProvider.AWS){
+            functionsCallback = function(callback){
+                return function(req, res){
+                    let event = req.body;
+                    let context = res;
+                    context.functionName = null;
+                    context.invokedFunctionArn = `${req.baseUrl}`;
+                    context.awsRequestId = "";
+                    context.succeed = function(text){
+                        return res.send(text)
+                    }
+                    return callback(event, context);
+                }
+            }
+        }
     }
 
     return {
         functionList: functionList,
-        serverlessProvider: serverlessProvider,
+        functionsCallback: functionsCallback,
         PORT: PORT
     }
 

@@ -1,6 +1,6 @@
 {
   "name": "functions-runner",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A CLI Tool (based on [Express](https://expressjs.com/)) for running and testing portable Node.js functions locally",
   "main": "index.js",
   "directories": {
