@@ -12,7 +12,7 @@ Without needing to worry about writing an HTTP server or complicated request han
 It helps spin up a local development server for quick testing of Functions from different providers, including:
 
 *   [Google Cloud Functions](https://cloud.google.com/functions/)
-<!-- *   [AWS Lambda](https://cloud.google.com/run/)  -->
+*   [AWS Lambda](https://cloud.google.com/run/) 
 
 ## Installation
 
@@ -91,7 +91,7 @@ Add this `scripts` to  `package.json`
     "build": "tsc",
 
     "dev": "npm run build && npx functions-runner --target=helloWorld
- --src=dist/index.js", // compile and run locally
+ --src=dist/index.js",
 
     "start": "npm run build && node dist/index.js"
 ```
