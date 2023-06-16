@@ -2,10 +2,17 @@
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
 const app = require("./src/server");
-const rootFunction = require('../../.');
 const resolver = require('./src/resolver');
 
 const argv = yargs(hideBin(process.argv)).argv;
+
+// function/src dir
+let rootFunction;
+if(argv.src){
+    rootFunction = require(`./../../${argv.src}`);
+}else{
+    rootFunction = require('./../../.');
+}
 
 const { functionList, PORT } = resolver(argv, rootFunction);
 

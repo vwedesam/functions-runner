@@ -74,8 +74,29 @@ You can configure the Functions Framework using command-line flags or
 environment variables. If you specify both, the environment variable will be
 ignored.
 
-| Command-line flag  | Environment variable      | Description                                                                                                                                                                                                      |
+| Command-line flag  | Default      | Description                                                                                                                                                                                                      |
 | ------------------ | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--port`           | `PORT`                    | The port on which the Functions Framework listens for requests. Default: `8080`                                                                                                                                  |
-| `--target`         | `FUNCTION_TARGET`         | The name of the exported function to be invoked in response to requests                                                                    
-| `--targets`         | `FUNCTION_TARGETS`         | The name of the exported function to be invoked in response to requests e.g --targets=helloWorld,function,greeting
+| `--port`           |   `8080`               | The port on which the Functions Framework listens for requests. e.g `--port=3000`                                                                                                                                 |
+| `--target`         | required         | The name of the exported function to be invoked in response to requests. e.g `--target=helloWorld`                                                                 
+| `--targets`         | optional         | The name of the exported functions to be invoked in response to requests e.g `--targets=helloWorld,function,greeting`
+| `--src`         |  dir defined by `main` in `package.json`        | The path to `index.js` where the function(s) are exported from. e.g `--src=dist/index.js`
+
+
+## TypeScript usage
+
+Add this `scripts` to  `package.json`
+```json
+    "build": "tsc",
+
+    "dev": "npm run build && npx functions-runner --target=helloWorld
+ --src=dist/index.js", // compile and run locally
+
+    "start": "npm run build && node dist/index.js"
+```
+
+don't forget to add this to `tsconfig.json` 
+
+```json
+  "outDir": "dist/"
+```
+
