@@ -65,6 +65,10 @@ module.exports = function(argv, rootFunction){
                 }
             }
         }
+    }else{
+        functionsCallback = function(callback){
+            return callback
+        }
     }
 
     return {
